@@ -1,0 +1,93 @@
+﻿<Window x:Class="VäderdataProjectAppCore.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VäderdataProjectAppCore" 
+        xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        mc:Ignorable="d"
+        Title= "Weather Report" WindowState="Normal" Height="1000">
+    <Window.Resources>
+        <local:AverageTemperatureConverter x:Key="AverageTemperatureConverter"/>
+    </Window.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" MaxWidth="2000" MaxHeight="1200">
+        <Grid Background="LightGoldenrodYellow">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center"  Width="1000" Height="auto">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="250"/>
+                        <RowDefinition Height="400"/>
+                        <RowDefinition Height="400"/>
+                    </Grid.RowDefinitions>
+                    <d:HeaderedContentControl >
+                        <d:HeaderedContentControl.Header>
+                            <Border Background="AliceBlue">
+                                <TextBlock Grid.Row="0" Text="Weather Report For the Year 2016 - 2017!" FontSize="50" HorizontalAlignment="Center" Height="97" />
+                            </Border>
+                        </d:HeaderedContentControl.Header>
+                    </d:HeaderedContentControl>
+
+                    <DatePicker Grid.Row="1" x:Name="selectedDate1" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80"  SelectedDate="2016-05-31" Grid.Column="0" Margin="136,20,0,0"/>
+                    <DatePicker Grid.Row="1" x:Name="selectedDate2" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" SelectedDate="2016-05-31" Grid.Column="1" Margin="554,20,0,0"/>
+
+                    <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" x:Name="AverageTemperature" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False"
+                    Height="200" Width="400" Margin="298,37,0,13" HorizontalAlignment="Left" ItemsSource="{Binding}"  >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="150" Header="Place" Binding="{Binding Place}"/>
+                            <DataGridTextColumn Width="150" Header="Average Temperature" Binding="{Binding Temperature}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DVC:Chart Grid.Row="3" Canvas.Top="80" Grid.Column="0"  Canvas.Left="10" x:Name="mcChart" Width="400" Height="300" Background="LightSteelBlue">
+                        <DVC:LineSeries Title="Warm to cold Outside"  
+                        IndependentValueBinding="{Binding Key}"  
+                        DependentValueBinding="{Binding Value}"/>
+                    </DVC:Chart>
+
+                    <DVC:Chart Grid.Row="4" Canvas.Top="80" Grid.Column="0"  Canvas.Left="10" x:Name="mcChart2" Width="400" Height="300" Background="LightSteelBlue">
+                        <DVC:LineSeries Title="Warm to cold Inside"  
+                        IndependentValueBinding="{Binding Key}"  
+                        DependentValueBinding="{Binding Value}"/>
+                    </DVC:Chart>
+
+                </Grid>
+
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center"  Width="1000" Height="auto" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="130"/>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock  Grid.Row="0"  Text="Select the dates from below and view the weather data!" FontSize="32" HorizontalAlignment="Left" Width="796" />
+
+                    <Image Grid.Row="0" Source="/weatherimage.png" Width="161" HorizontalAlignment="Left" Margin="825,0,0,0" />
+
+                    <Button Grid.Row="1" x:Name="TempResult" Content="Show Weather Data" FontSize="28" HorizontalAlignment="Left"  Width="340"  Click="dataFromDBOfSelectedDates" />
+
+                    <Label Grid.Row="1" x:Name="errorMessage" Content="Kindly select dates for the year 2016-2017" FontSize="30" Foreground="Red" Visibility="Visible"  Margin="392,0,10,0"/>
+
+                </Grid>
+
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</Window>
