@@ -74,14 +74,15 @@
                     <TextBlock x:Name="avgOutdoorTemp" FontFamily="Verdana" FontWeight="Bold" FontSize="24"/>
                     <TextBlock FontFamily="Verdana" FontWeight="Bold" FontSize="24">&#186;C</TextBlock>
                 </StackPanel>
-                <TabControl Margin="20,5,20,0">
+                <TabControl>
                     <TabItem Header="Temperature" >
                         <StackPanel Height="Auto" Orientation="Horizontal" Margin="20,20,20,20">
                             <DVC:Chart Canvas.Top="80" Width="750" Margin="0,10,0,0" Canvas.Left="10" x:Name="WarmToColdDayOutdoorReport" Height="600" Background="Transparent">
                                 <DVC:Chart.Template>
-                                    <ControlTemplate TargetType="{x:Type DVC:Chart}"
+                                    <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
-                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" >
+                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" TargetType="{x:Type DVC:Chart}"
+                                 >
                                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -116,9 +117,10 @@
                             </DVC:Chart>
                             <DVC:Chart Width="750" Margin="20,10,0,0" Canvas.Top="80" Canvas.Left="10" x:Name="WarmToColdDayIndoorReport" Height="600" Background="Transparent">
                                 <DVC:Chart.Template>
-                                    <ControlTemplate TargetType="{x:Type DVC:Chart}"
+                                    <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
-                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" >
+                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" TargetType="{x:Type DVC:Chart}"
+                                 >
                                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -153,13 +155,14 @@
                             </DVC:Chart>
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="Humidity">
+                    <TabItem Header="Humidity" >
                         <StackPanel Height="Auto" Orientation="Horizontal" Margin="20,20,20,20">
                             <DVC:Chart Canvas.Top="80" Margin="0,10,0,0" Width="750" Canvas.Left="10" x:Name="DryToWetDayOutdoorReport" Height="600" Background="Transparent">
                                 <DVC:Chart.Template>
-                                    <ControlTemplate TargetType="{x:Type DVC:Chart}"
+                                    <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
-                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" >
+                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" TargetType="{x:Type DVC:Chart}"
+                                 >
                                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -198,9 +201,10 @@
 
                             <DVC:Chart Canvas.Top="80" Width="750" Margin="20,10,0,0" Canvas.Left="10" x:Name="DryToWetDayIndoorReport" Height="600" Background="Transparent">
                                 <DVC:Chart.Template>
-                                    <ControlTemplate TargetType="{x:Type DVC:Chart}"
+                                    <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
-                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" >
+                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" TargetType="{x:Type DVC:Chart}"
+                                 >
                                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -244,9 +248,10 @@
                         <StackPanel Height="Auto" Orientation="Horizontal" Margin="20,20,20,20">
                             <DVC:Chart Canvas.Top="80" Width="750" Margin="0,10,0,0" Canvas.Left="10" x:Name="MoldRiskIndexOutdoorReport" Height="600" Background="Transparent" >
                                 <DVC:Chart.Template>
-                                    <ControlTemplate TargetType="{x:Type DVC:Chart}"
+                                    <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
-                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" >
+                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" TargetType="{x:Type DVC:Chart}"
+                                 >
                                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -276,14 +281,19 @@
                                 </DVC:Chart.Template>
                                 <DVC:LineSeries Title="Mold Risk Index Outside"  
                         IndependentValueBinding="{Binding Key}"  
-                        DependentValueBinding="{Binding Value}"/>
+                        DependentValueBinding="{Binding Value}">
+                                    <DVC:LineSeries.DependentRangeAxis>
+                                        <DVC:LinearAxis Orientation="Y"  Title="Mold Risk Value (%)"/>
+                                    </DVC:LineSeries.DependentRangeAxis>
+                                </DVC:LineSeries>
                             </DVC:Chart>
 
                             <DVC:Chart Canvas.Top="80" Width="750" Margin="20,10,0,0" Canvas.Left="10" x:Name="MoldRiskIndexIndoorReport" Height="600" Background="Transparent" >
                                 <DVC:Chart.Template>
-                                    <ControlTemplate TargetType="{x:Type DVC:Chart}"
+                                    <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
-                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" >
+                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" TargetType="{x:Type DVC:Chart}"
+                                 >
                                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -318,95 +328,98 @@
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="Door Status" >
-                        <StackPanel Height="Auto" Orientation="Horizontal" Margin="20,20,20,20">
-                            <DVC:Chart Canvas.Top="80" Width="750" Canvas.Left="10" x:Name="DoorOpenReport" Height="600" Background="Transparent" Margin="0,10,0,0">
-                                <DVC:Chart.Template>
-                                    <ControlTemplate TargetType="{x:Type DVC:Chart}"
+                        <StackPanel Height="Auto" Orientation="Vertical" Margin="0,20,0,0" >
+                              
+                            <StackPanel Height="Auto" Orientation="Horizontal" Margin="20,20,20,20">
+                                <DVC:Chart Canvas.Top="80" Width="750" Canvas.Left="10" x:Name="DoorOpenReport" Height="600" Background="Transparent" Margin="0,10,0,0">
+                                    <DVC:Chart.Template>
+                                        <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
-                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" >
-                                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                                            <Grid>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"/>
-                                                    <RowDefinition Height="Auto"/>
-                                                </Grid.RowDefinitions>
-                                                <visualizationToolkit:Title Content="{TemplateBinding Title}" Style="{TemplateBinding TitleStyle}"/>
-                                                <Grid Grid.Row="1">
+                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" TargetType="{x:Type DVC:Chart}"
+                                 >
+                                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <visualizationToolkit:Title Content="{TemplateBinding Title}" Style="{TemplateBinding TitleStyle}"/>
+                                                    <Grid Grid.Row="1">
 
-                                                    <visualizationToolkit:Legend x:Name="Legend" Background="White"
+                                                        <visualizationToolkit:Legend x:Name="Legend" Background="White"
                                                              Style="{TemplateBinding LegendStyle}" FlowDirection="LeftToRight"
                                                              HorizontalAlignment="Center" 
                                                              VerticalAlignment="Bottom" 
                                                              Margin="0 2 2 0"/>
-                                                </Grid>
-                                                <Grid Grid.Row="0">
-                                                    <Primitives:EdgePanel x:Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}">
-                                                        <Grid Style="{TemplateBinding PlotAreaStyle}" Panel.ZIndex="-1"/>
-                                                        <Border BorderBrush="AliceBlue" BorderThickness="1" Panel.ZIndex="10"/>
-                                                    </Primitives:EdgePanel>
+                                                    </Grid>
+                                                    <Grid Grid.Row="0">
+                                                        <Primitives:EdgePanel x:Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}">
+                                                            <Grid Style="{TemplateBinding PlotAreaStyle}" Panel.ZIndex="-1"/>
+                                                            <Border BorderBrush="AliceBlue" BorderThickness="1" Panel.ZIndex="10"/>
+                                                        </Primitives:EdgePanel>
+
+                                                    </Grid>
 
                                                 </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </DVC:Chart.Template>
 
-                                            </Grid>
-                                        </Border>
-                                    </ControlTemplate>
-                                </DVC:Chart.Template>
-
-                                <DVC:LineSeries Title="Door Open Duration" 
+                                    <DVC:LineSeries Title="Door Open Duration" 
                         IndependentValueBinding="{Binding Key}"  
                         DependentValueBinding="{Binding Value}">
-                                    <DVC:LineSeries.DependentRangeAxis>
-                                        <DVC:LinearAxis Orientation="Y"  Title="Door open duration in hours"/>
-                                    </DVC:LineSeries.DependentRangeAxis>
-                                </DVC:LineSeries>
+                                        <DVC:LineSeries.DependentRangeAxis>
+                                            <DVC:LinearAxis Orientation="Y"  Title="Door open duration in hours"/>
+                                        </DVC:LineSeries.DependentRangeAxis>
+                                    </DVC:LineSeries>
 
-                            </DVC:Chart>
+                                </DVC:Chart>
 
-                            <DVC:Chart Canvas.Top="80" Width="750" Margin="20,10,0,0" Canvas.Left="10" x:Name="DoorOpenPieReport" Height="600" Background="Transparent" >
-                                <DVC:Chart.Template>
-                                    <ControlTemplate TargetType="{x:Type DVC:Chart}"
+                                <DVC:Chart Canvas.Top="80" Width="750" Margin="20,10,0,0" Canvas.Left="10" x:Name="DoorOpenPieReport" Height="600" Background="Transparent" >
+                                    <DVC:Chart.Template>
+                                        <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
-                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" >
-                                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                                            <Grid>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"/>
-                                                    <RowDefinition Height="Auto"/>
-                                                </Grid.RowDefinitions>
-                                                <visualizationToolkit:Title Content="{TemplateBinding Title}" Style="{TemplateBinding TitleStyle}"/>
-                                                <Grid Grid.Row="1">
+                                 xmlns:Primitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit" TargetType="{x:Type DVC:Chart}"
+                                 >
+                                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <visualizationToolkit:Title Content="{TemplateBinding Title}" Style="{TemplateBinding TitleStyle}"/>
+                                                    <Grid Grid.Row="1">
 
-                                                    <visualizationToolkit:Legend x:Name="Legend" Background="White"
+                                                        <visualizationToolkit:Legend x:Name="Legend" Background="White"
                                                              Style="{TemplateBinding LegendStyle}" FlowDirection="LeftToRight"
                                                              HorizontalAlignment="Center" 
                                                              VerticalAlignment="Bottom" 
                                                              Margin="0 2 2 0"/>
-                                                </Grid>
-                                                <Grid Grid.Row="0">
-                                                    <Primitives:EdgePanel x:Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}">
-                                                        <Grid Style="{TemplateBinding PlotAreaStyle}" Panel.ZIndex="-1"/>
-                                                        <Border BorderBrush="AliceBlue" BorderThickness="1" Panel.ZIndex="10"/>
-                                                    </Primitives:EdgePanel>
+                                                    </Grid>
+                                                    <Grid Grid.Row="0">
+                                                        <Primitives:EdgePanel x:Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}">
+                                                            <Grid Style="{TemplateBinding PlotAreaStyle}" Panel.ZIndex="-1"/>
+                                                            <Border BorderBrush="AliceBlue" BorderThickness="1" Panel.ZIndex="10"/>
+                                                        </Primitives:EdgePanel>
+
+                                                    </Grid>
 
                                                 </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </DVC:Chart.Template>
 
-                                            </Grid>
-                                        </Border>
-                                    </ControlTemplate>
-                                </DVC:Chart.Template>
-
-                                <DVC:PieSeries Title="Door Open Duration" 
+                                    <DVC:PieSeries Title="Door Open Duration" 
                         IndependentValueBinding="{Binding Key}"  
-                        DependentValueBinding="{Binding Value}">
-                                    
-                                </DVC:PieSeries>
+                        DependentValueBinding="{Binding Value}"/>
 
-                            </DVC:Chart>
+                                </DVC:Chart>
 
+                            </StackPanel>
                         </StackPanel>
                     </TabItem>
                 </TabControl>
-                
+
             </StackPanel>
         </ScrollViewer>
     </Grid>

@@ -31,7 +31,7 @@ namespace BusinessLibrary
         {
             List<DoorReportModel> doorStatusList = new List<DoorReportModel>();
             DateTime fromDateCopy = fromDate;
-            doorOpenDuration.ForEach(x => doorStatusList.AddRange(CategorizeDoorEventOnDayTime(x, toDate.AddDays(1))));
+            doorOpenDuration.ForEach(x => doorStatusList.AddRange(CategorizeDoorEventOnDayTime(x, toDate)));
             return doorStatusList;
         }
 
@@ -209,7 +209,6 @@ namespace BusinessLibrary
                 else
                 {
                     // Previous outdoor temp
-                    // outsideTempBeforeAfter.Add(outdoorTemp.Where(x => x.Date < item.Date).Take(1).FirstOrDefault());
                     // Next outdoor temp
                     insideTempAfter = new List<TemperatureChange>();
                     // outsideTempBeforeAfter.AddRange(outdoorTemp.Where(x => x.Date < item.Date).OrderByDescending(x => x.Date).Take(1).ToList());
