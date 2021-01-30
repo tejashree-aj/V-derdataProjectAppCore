@@ -71,6 +71,8 @@ namespace VäderdataProjectAppCore
             List<DoorReportModel> doorReportModels = DoorStatusManager.GetDoorStatusReport(temperatureChangeData, fromDate, toDate)
                                                     .Where(x => x.DoorOpenDuration > 10).ToList();
 
+            totaldoorOpenduration.Text = $"Total door open duration {(doorReportModels.Sum(x => x.DoorOpenDuration) / 60).ToString()} hours out of {toDate.Subtract(fromDate).TotalHours} hours";
+
             ((LineSeries)DoorOpenReport.Series[0]).ItemsSource = doorReportModels
                 .GroupBy(x => x.Date)
                     .Select(x => new KeyValuePair<string, double>(x.Key.Value.ToShortDateString(),
@@ -104,7 +106,7 @@ namespace VäderdataProjectAppCore
 
 
             ((LineSeries)WarmToColdDayOutdoorReport.Series[0]).ItemsSource = avgTempPerDay
-                    .Where(x => x.Place.Equals("Ute", StringComparison.OrdinalIgnoreCase)).OrderByDescending(x=>x.Temperature)
+                    .Where(x => x.Place.Equals("Ute", StringComparison.OrdinalIgnoreCase)).OrderByDescending(x => x.Temperature)
                     .Select(x => new KeyValuePair<string, double>(x.Date.ToShortDateString(), x.Temperature)).ToList();
 
             ((LineSeries)WarmToColdDayIndoorReport.Series[0]).ItemsSource = avgTempPerDay
@@ -129,15 +131,27 @@ namespace VäderdataProjectAppCore
         {
             var moldIndex = WeatherActivityManager.MoldRiskIndex(temperatureViewData);
 
-            ((LineSeries)MoldRiskIndexOutdoorReport.Series[0]).ItemsSource = moldIndex
+            var uteMoldIndex = moldIndex
                 .Where(x => x.Place.Equals("Ute", StringComparison.OrdinalIgnoreCase))
                 .Select(x => new KeyValuePair<string, double>(x.Date.ToShortDateString(), x.MoldValue)).ToList();
 
+            avgOutdoorMold.Text = $"{MoldState(uteMoldIndex.Average(x => x.Value))}";
 
-            ((LineSeries)MoldRiskIndexIndoorReport.Series[0]).ItemsSource = moldIndex
+            ((LineSeries)MoldRiskIndexOutdoorReport.Series[0]).ItemsSource = uteMoldIndex;
+
+            var inneMoldIndex = moldIndex
                 .Where(x => x.Place.Equals("Inne", StringComparison.OrdinalIgnoreCase))
                 .Select(x => new KeyValuePair<string, double>(x.Date.ToShortDateString(), x.MoldValue)).ToList();
 
+            avgIndoorMold.Text = $"{MoldState(inneMoldIndex.Average(x => x.Value))}";
+
+            ((LineSeries)MoldRiskIndexIndoorReport.Series[0]).ItemsSource = inneMoldIndex;
+
+        }
+
+        private string MoldState(double moldIndex)
+        {
+            return moldIndex < 0 ? "Low Risk" : moldIndex > 0 && moldIndex < 10 ? "Moderate Risk" : "High Risk";
         }
 
     }

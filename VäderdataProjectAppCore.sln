@@ -9,6 +9,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLibrary", "BusinessLibrary\BusinessLibrary.csproj", "{B4030E6E-6BA5-40FC-A020-9D99C81F3911}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{8B4E5992-6D84-4FBB-9827-736CA535D1D0}"
+	ProjectSection(SolutionItems) = preProject
+		DatabaseSetup.sql = DatabaseSetup.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7CD3DA19-52A2-4175-B035-0BE93DE14CBF}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

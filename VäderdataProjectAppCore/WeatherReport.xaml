@@ -40,9 +40,9 @@
                             <Border Grid.Row="0" Grid.Column="2" Background="Beige" Margin="10,5,0,5" BorderBrush="Gray" BorderThickness="1" >
                                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Vertical">
                                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                                        <TextBlock FontSize="15" FontWeight="Bold" Margin="30,8,0,0">From</TextBlock>
+                                        <TextBlock FontSize="15" FontWeight="Bold" Margin="30,8,0,0" Text="From"></TextBlock>
                                         <DatePicker x:Name="selectedDate1" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"  SelectedDate="2016-05-31" Width="110" Margin="10,5,10,5" />
-                                        <TextBlock FontSize="15" FontWeight="Bold" Margin="0,8,0,0">To</TextBlock>
+                                        <TextBlock FontSize="15" FontWeight="Bold" Margin="0,8,0,0" Text="To"></TextBlock>
                                         <DatePicker x:Name="selectedDate2" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"  SelectedDate="2016-06-05" Width="110" Margin="10,5,10,5" />
                                         <Button x:Name="TempResult" Content="Show Data" Width="90" FontSize="15" HorizontalAlignment="Left" Click="GetWeatherData_Click" VerticalAlignment="Center" Margin="0,0,25,0" ></Button>
                                     </StackPanel>
@@ -109,7 +109,7 @@
                                 </DVC:Chart.Template>
                                 <DVC:LineSeries Title="Warmest to Coldest Days Outside"  
                             IndependentValueBinding="{Binding Key}"  
-                            DependentValueBinding="{Binding Value}" Margin="0,-48,0,48">
+                            DependentValueBinding="{Binding Value}">
                                     <DVC:LineSeries.DependentRangeAxis>
                                         <DVC:LinearAxis Orientation="Y"  Title="Average Temperature (%)"/>
                                     </DVC:LineSeries.DependentRangeAxis>
@@ -190,7 +190,7 @@
                                         </Border>
                                     </ControlTemplate>
                                 </DVC:Chart.Template>
-                                <DVC:LineSeries Title="Dryest to Coldest Days Outside"  
+                                <DVC:LineSeries Title="Dryest to Wettest Days Outside"  
                         IndependentValueBinding="{Binding Key}"  
                         DependentValueBinding="{Binding Value}">
                                     <DVC:LineSeries.DependentRangeAxis>
@@ -245,8 +245,15 @@
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="Mold Index" >
-                        <StackPanel Height="Auto" Orientation="Horizontal" Margin="20,20,20,20">
-                            <DVC:Chart Canvas.Top="80" Width="750" Margin="0,10,0,0" Canvas.Left="10" x:Name="MoldRiskIndexOutdoorReport" Height="600" Background="Transparent" >
+                        <StackPanel Height="Auto" Orientation="Vertical" Margin="0,20,0,0" >
+                            <StackPanel Margin="20,0,20,10" Height="30" Orientation="Horizontal">
+                                <TextBlock Text="Outdoor Mold Risk : " FontFamily="Verdana" FontSize="20"/>
+                                <TextBlock x:Name="avgOutdoorMold" FontFamily="Verdana" FontWeight="Bold" FontSize="22"></TextBlock>
+                                <TextBlock Text="Indoor Mold Risk : " FontFamily="Verdana" FontSize="20" Margin="685,0,0,0"/>
+                                <TextBlock x:Name="avgIndoorMold" FontFamily="Verdana" FontWeight="Bold" FontSize="22"/>                                
+                            </StackPanel>
+                            <StackPanel Height="Auto" Orientation="Horizontal" Margin="20,10,20,20">
+                            <DVC:Chart Canvas.Top="80" Width="750" Margin="0,10,0,0" Canvas.Left="10" x:Name="MoldRiskIndexOutdoorReport" Height="550" Background="Transparent" >
                                 <DVC:Chart.Template>
                                     <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
@@ -288,7 +295,7 @@
                                 </DVC:LineSeries>
                             </DVC:Chart>
 
-                            <DVC:Chart Canvas.Top="80" Width="750" Margin="20,10,0,0" Canvas.Left="10" x:Name="MoldRiskIndexIndoorReport" Height="600" Background="Transparent" >
+                            <DVC:Chart Canvas.Top="80" Width="750" Margin="20,10,0,0" Canvas.Left="10" x:Name="MoldRiskIndexIndoorReport" Height="550" Background="Transparent" >
                                 <DVC:Chart.Template>
                                     <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
@@ -321,17 +328,26 @@
                                         </Border>
                                     </ControlTemplate>
                                 </DVC:Chart.Template>
-                                <DVC:LineSeries Title="Mold Risk Index Inside"  
+                                    <DVC:LineSeries Title="Mold Risk Index Inside"  
                         IndependentValueBinding="{Binding Key}"  
-                        DependentValueBinding="{Binding Value}"/>
+                        DependentValueBinding="{Binding Value}">
+                                        <DVC:LineSeries.DependentRangeAxis>
+                                            <DVC:LinearAxis Orientation="Y"  Title="Mold Risk Value (%)"/>
+                                        </DVC:LineSeries.DependentRangeAxis>
+                                    </DVC:LineSeries>
+                                
                             </DVC:Chart>
+                        </StackPanel>
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="Door Status" >
                         <StackPanel Height="Auto" Orientation="Vertical" Margin="0,20,0,0" >
-                              
-                            <StackPanel Height="Auto" Orientation="Horizontal" Margin="20,20,20,20">
-                                <DVC:Chart Canvas.Top="80" Width="750" Canvas.Left="10" x:Name="DoorOpenReport" Height="600" Background="Transparent" Margin="0,10,0,0">
+                            <StackPanel Margin="20,0,20,10" Height="30" Orientation="Horizontal">
+                                <TextBlock x:Name="totaldoorOpenduration" FontFamily="Verdana" FontWeight="Bold" FontSize="24"></TextBlock>
+                               
+                            </StackPanel>
+                            <StackPanel Height="Auto" Orientation="Horizontal" Margin="20,10,20,20">
+                                <DVC:Chart Canvas.Top="80" Width="750" Canvas.Left="10" x:Name="DoorOpenReport" Height="550" Background="Transparent" Margin="0,10,0,0">
                                     <DVC:Chart.Template>
                                         <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
@@ -375,7 +391,7 @@
 
                                 </DVC:Chart>
 
-                                <DVC:Chart Canvas.Top="80" Width="750" Margin="20,10,0,0" Canvas.Left="10" x:Name="DoorOpenPieReport" Height="600" Background="Transparent" >
+                                <DVC:Chart Canvas.Top="80" Width="750" Margin="20,10,0,0" Canvas.Left="10" x:Name="DoorOpenPieReport" Height="550" Background="Transparent" >
                                     <DVC:Chart.Template>
                                         <ControlTemplate
                                  xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit" 

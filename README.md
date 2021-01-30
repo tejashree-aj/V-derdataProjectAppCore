@@ -3,6 +3,8 @@
 
 Project work - Weather data
 
+* Initially execute DatabaseSetup and change the connection string accordingly.
+
  The project is an application that, based on existing
 temperature and humidity data can search, sort
 and draw conclusions.
